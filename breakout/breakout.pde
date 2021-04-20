@@ -16,6 +16,13 @@ float padX, padY, padD;
 
 //ball
 float ballX, ballY, ballD, vx, vy;
+boolean dropBall;
+
+//UI
+int lives;
+
+//RNG
+float ballRNG;
 
 //keyboard
 boolean aKey, dKey, leftKey, rightKey;
@@ -35,11 +42,10 @@ void setup() {
   padY = height;
   padD = 100;
   
-  //initialize paddle
+  //initialize ball
   ballX = width/2;
   ballY = height - 100;
   ballD = 25;
-  
 } //end of setup
 
 void draw() {
