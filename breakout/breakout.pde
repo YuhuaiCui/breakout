@@ -27,13 +27,14 @@ boolean[] alive;
 int brickD;
 int n;
 int tempX, tempY;
+boolean refresh;
 
 //ball
 float ballX, ballY, ballD, vx, vy;
 boolean dropBall;
 
 //UI
-int lives;
+int lives, score, t;
 
 //RNG
 float ballRNG;
@@ -67,21 +68,6 @@ void setup() {
   x = new int[n];
   y = new int[n];
   alive = new boolean[n];
-  tempX = 150;
-  tempY = 100;
-
-  int i = 0;
-  while (i < n) {
-    x[i] = tempX;
-    y[i] = tempY;
-    alive[i] = true;
-    tempX = tempX + 60;
-    if (tempX >= width - 150) {
-     tempX = 150;
-     tempY = tempY + 60;
-    }
-    i++;
-  }
 } //end of setup
 
 void draw() {

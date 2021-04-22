@@ -1,8 +1,10 @@
 void game() {
-  background(123);
+  background(forest);
 
   //UI
-  easyText(sand, CENTER, CENTER, 50, width/2, height/2, "Lives: " + lives);
+  easyStrokeFill(0, 0, sand);
+  easyText(CENTER, CENTER, 50, width/2, height/2, "Lives: " + lives);
+  easyText(CENTER, CENTER, 50, width/2, 75 + height/2, "Score: " + score);
   if (ballY > height) {
     lives--;
     dropBall = true;
@@ -11,7 +13,7 @@ void game() {
     ballD = 25;
     padX = width/2;
   }
-  if (lives == 0) {
+  if (lives == 0 || score == 45) {
     mode = GAMEOVER;
   }
 
@@ -62,12 +64,13 @@ void game() {
   }
 
   //move paddles
-  if (aKey == true && padX >= ballD/2) padX = padX - 3;
+  if (aKey == true && padX >= padD/2) padX = padX - 3;
   if (dKey == true && padX <= width - (padD/2)) padX = padX + 3;
 }
 
 void gameClicks() {
   mode = PAUSE;
+  t = 1;
 }
 
 void manageBricks(int i) {
@@ -82,6 +85,6 @@ void manageBricks(int i) {
     vx = (ballX - x[i])/10;
     vy = (ballY - y[i])/10;
     alive[i] = false;
-    
+    score++;
   }
 }
